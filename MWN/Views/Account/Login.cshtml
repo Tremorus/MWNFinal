@@ -1,10 +1,6 @@
 ﻿@model MWN.ViewModels.LoginViewModel
-@{
-
-    ViewData["Title"] = "Login page";
-}
+@{ViewData["Title"] = "Login page";}
 @*https://metanit.com/sharp/aspnet5/16.4.php*@
-
 
 <form method="post" asp-controller="Account" asp-action="Login" asp-route-returnUrl="@Model.ReturnUrl">
     <div asp-validation-summary="ModelOnly"></div>
@@ -25,6 +21,4 @@
     <div>
         <input type="submit" value="Sign In" />
     </div>
-
 </form>
-

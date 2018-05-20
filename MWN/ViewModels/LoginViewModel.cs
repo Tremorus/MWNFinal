@@ -6,7 +6,7 @@ namespace MWN.ViewModels
     {
         [Required]
         [Display(Name = "Email")]
-        [DataType(DataType.EmailAddress)]
+        //[DataType(DataType.EmailAddress)]
         public string Email { get; set; }
 
         [Required]
@@ -17,6 +17,6 @@ namespace MWN.ViewModels
         [Display(Name ="Remember me")]
         public bool RememberMe { get; set; }
 
-        public string ReturnUrl { set; get; }
+        public string ReturnUrl { get; set;}
     }
 }

@@ -70,7 +70,7 @@ namespace MWN.Controllers
 
         // https://metanit.com/sharp/aspnet5/16.4.php
         [HttpGet]
-        public IActionResult Login(string returnUrl=null)
+        public IActionResult Login(string returnUrl = null)
         {
             // В Get-версии метода Login мы получаем адрес для возврата в виде параметра returnUrl и передаем его в модель LoginViewModel.
             return View(new LoginViewModel { ReturnUrl = returnUrl });
