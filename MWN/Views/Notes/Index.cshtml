@@ -1,0 +1,80 @@
+﻿@*@model IEnumerable<MWN.Models.Note>*@
+@model MWN.Models.NoteOwnerViewModel
+
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Notes</h2>
+
+<p>
+    <a asp-action="Create" class="btn btn-success">Create New</a>
+</p>
+
+<form asp-controller="Notes" asp-action="Index" method="get">
+    <p>
+        <select asp-for="ownerField" asp-items="Model.owners">
+            <option value="">All</option>
+        </select>
+        
+        Content filter: <input type="search" name="searchString" />
+        <input type="submit" value="Filter" />
+
+        @*Search in content: <input type="search" name="searchString" />
+        <input type="submit" value="Filter" />*@
+    </p>
+
+
+</form>
+<table class="table">
+    <thead>
+        <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.notes[0].Owner)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.notes[0].Title)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.notes[0].Content)
+                </th>
+                <th>
+                    Action
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.notes[0].Created)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.notes[0].Changed)
+                </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.notes) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Owner)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Content)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-default btn-primary">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-info">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-default btn-danger">Delete</a>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Created)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Changed)
+            </td>
+
+        </tr>
+}
+    </tbody>
+</table>

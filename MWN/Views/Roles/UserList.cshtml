@@ -1,0 +1,16 @@
+﻿@model IEnumerable<MWN.Models.User>
+@{ 
+    ViewData["Title"] = "User list";
+}
+
+<table class="table">
+    @foreach (var user in Model)
+    {
+        <tr>
+            <td>@user.Email</td>
+            <td>
+                <a class="btn btn-sm btn-primary" asp-action="Edit" asp-route-id="@user.Id">Access rigths</a>
+            </td>
+        </tr>
+    }
+</table>
