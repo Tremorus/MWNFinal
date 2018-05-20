@@ -20,7 +20,6 @@ namespace MWN.Controllers
         }
 
         // GET: Notes
-
         public async Task<IActionResult> Index(string ownerField, string searchString) //search by owner: ownerField , content filter: searchString
         {
             // create LINQ query for furhter owners extraction
@@ -30,8 +29,6 @@ namespace MWN.Controllers
 
             var notes = from m in _context.Note
                         select m; //LINQ query
-
-
 
             if (!String.IsNullOrEmpty(searchString))
             {
