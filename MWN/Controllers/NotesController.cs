@@ -30,7 +30,7 @@ namespace MWN.Controllers
 
             var notes = from m in _context.Note
                         select m; //LINQ query
-            notes = notes.Where(x => x.OwnerId == User.FindFirstValue(ClaimTypes.NameIdentifier));
+            notes = notes.Where(x => x.OwnerId == User.FindFirstValue(ClaimTypes.NameIdentifier));   //GET  ONLY OWN NOTES by OwnerId
             if (!String.IsNullOrEmpty(searchString))
             {
                 notes = notes.Where(s => s.Content.Contains(searchString));
