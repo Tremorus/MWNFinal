@@ -9,5 +9,6 @@ namespace MWN.Models
         public List<Note> notes;
         public SelectList owners;
         public string ownerField { get; set; }
+        public string OwnerId { get; set; }
     }
 }

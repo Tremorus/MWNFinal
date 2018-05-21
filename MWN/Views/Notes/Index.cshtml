@@ -31,6 +31,9 @@
     <thead>
         <tr>
                 <th>
+                    @Html.DisplayNameFor(model => model.notes[0].OwnerId)
+                </th>
+                <th>
                     @Html.DisplayNameFor(model => model.notes[0].Owner)
                 </th>
                 <th>
@@ -53,6 +56,9 @@
     <tbody>
 @foreach (var item in Model.notes) {
         <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.OwnerId)
+            </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Owner)
             </td>

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Security.Claims;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -20,7 +21,7 @@ namespace MWN.Controllers
         }
 
         // GET: Notes
-        public async Task<IActionResult> Index(string ownerField, string searchString) //search by owner: ownerField , content filter: searchString
+        public async Task<IActionResult> Index(string OwnerId, string ownerField, string searchString) //search by owner: ownerField , content filter: searchString
         {
             // create LINQ query for furhter owners extraction
             IQueryable<string> ownerQuery = from m in _context.Note
@@ -29,7 +30,7 @@ namespace MWN.Controllers
 
             var notes = from m in _context.Note
                         select m; //LINQ query
-
+            notes = notes.Where(x => x.OwnerId == User.FindFirstValue(ClaimTypes.NameIdentifier));
             if (!String.IsNullOrEmpty(searchString))
             {
                 notes = notes.Where(s => s.Content.Contains(searchString));
@@ -71,7 +72,8 @@ namespace MWN.Controllers
         {
 
             var note = new Note();
-            
+            note.OwnerId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
+            note.Owner = this.User.FindFirstValue(ClaimTypes.Name);
             note.Created = note.Changed = DateTime.Now;
             //note.Changed = DateTime.Now;
 
