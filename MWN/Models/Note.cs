@@ -10,6 +10,7 @@ namespace MWN.Models
     {
 
         public string Id { get; set; }
+        public string OwnerId { get; set; }
         [Display(Name="Author")]
         public string Owner { get; set; }
         public string Title { get; set; }

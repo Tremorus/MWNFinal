@@ -71,6 +71,7 @@ namespace MWN.Controllers
         {
 
             var note = new Note();
+            
             note.Created = note.Changed = DateTime.Now;
             //note.Changed = DateTime.Now;
 
@@ -83,12 +84,12 @@ namespace MWN.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Owner,Title,Content,Created,Changed")] Note note)
+        public async Task<IActionResult> Create([Bind("Id,Owner,OwnerId,Title,Content,Created,Changed")] Note note)
         {
             if (ModelState.IsValid)
             {
                 //note.Changed = note.Created= DateTime.Now;
-
+                
                 _context.Add(note);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
