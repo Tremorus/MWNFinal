@@ -14,6 +14,11 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Id" />
             <div class="form-group">
+                <label asp-for="NoteAvatar" class="control-label"></label>
+                <input asp-for="NoteAvatar" class="form-control" />
+                <span asp-validation-for="NoteAvatar" class="text-danger"></span>
+            </div>
+            <div>
                 <label asp-for="OwnerId" class="control-label"></label>
                 <input asp-for="OwnerId" class="form-control" />
                 <span asp-validation-for="OwnerId" class="text-danger"></span>

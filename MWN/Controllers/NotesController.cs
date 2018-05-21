@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using MWN.Models;
+using System.Net;
+using System.IO;
 
 namespace MWN.Controllers
 {
@@ -91,12 +93,41 @@ namespace MWN.Controllers
             if (ModelState.IsValid)
             {
                 //note.Changed = note.Created= DateTime.Now;
-                
+                string noteTitle = note.Title;
+
+                string avatar = GetAvas(noteTitle);
+                note.NoteAvatar = avatar;
                 _context.Add(note);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
             return View(note);
+        }
+
+        private string GetAvas(string noteTitle)
+        {
+            // Create a request for the URL. 		
+            WebRequest request = WebRequest.Create($"https://avatars.dicebear.com/v2/identicon/{noteTitle}.svg");
+            Console.WriteLine(request);
+            // If required by the server, set the credentials.
+            request.Credentials = CredentialCache.DefaultCredentials;
+            // Get the response.
+            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+            // Display the status.
+            Console.WriteLine(response.StatusDescription);
+            // Get the stream containing content returned by the server.
+            Stream dataStream = response.GetResponseStream();
+            // Open the stream using a StreamReader for easy access.
+            StreamReader reader = new StreamReader(dataStream);
+            // Read the content.
+            string responseFromServer = reader.ReadToEnd();
+            // Display the content.
+            //Console.WriteLine(responseFromServer);
+            // Cleanup the streams and the response.
+            reader.Close();
+            dataStream.Close();
+            response.Close();
+            return responseFromServer;
         }
 
         // GET: Notes/Edit/5
@@ -122,7 +153,7 @@ namespace MWN.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("Id,Owner,Title,Content,Changed,Created")] Note note)
+        public async Task<IActionResult> Edit(string id, string NoteAvatar, [Bind("Id,Owner,OwnerId,Title,Content,Changed,Created,NoteAvatar")] Note note)
         {
             if (id != note.Id)
             {

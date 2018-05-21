@@ -11,9 +11,10 @@ using System;
 namespace MWN.Migrations
 {
     [DbContext(typeof(MWNContext))]
-    partial class MWNContextModelSnapshot : ModelSnapshot
+    [Migration("20180521150327_NoteAvatar")]
+    partial class NoteAvatar
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

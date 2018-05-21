@@ -24,6 +24,7 @@ namespace MWN.Models
 
         [DisplayFormat(ApplyFormatInEditMode = false, DataFormatString = "{0:dd-MM-yyyy hh:mm}")]
         public DateTime Changed { get; set; }
+        public string NoteAvatar { get; set; }
         //public Note()
         //{
         //    Created= Changed = DateTime.Now;
