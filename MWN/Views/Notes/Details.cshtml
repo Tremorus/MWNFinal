@@ -19,24 +19,29 @@
         <dd>
             @Html.DisplayFor(model => model.Owner)
         </dd>
+
         <dt>
             @Html.DisplayNameFor(model => model.Title)
         </dt>
         <dd>
             @Html.DisplayFor(model => model.Title)
         </dd>
+
         <dt>
             @Html.DisplayNameFor(model => model.Content)
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.Content, additionalViewData: new { htmlAttributes = new { @class = "form-control" }})
+            @*@Html.DisplayFor(model => model.Content, additionalViewData: new { htmlAttributes = new { @class = "form-control" } })*@
+            <pre>@Html.DisplayFor(model => model.Content)</pre>
         </dd>
+
         <dt>
             @Html.DisplayNameFor(model => model.Created)
         </dt>
         <dd>
             @Html.DisplayFor(model => model.Created)
         </dd>
+
         <dt>
             @Html.DisplayNameFor(model => model.Changed)
         </dt>
