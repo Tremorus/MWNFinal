@@ -164,6 +164,9 @@ namespace MWN.Controllers
             {
                 try
                 {
+                    string noteTitle = note.Title;
+                    string avatar = GetAvas(noteTitle);
+                    note.NoteAvatar = avatar;
                     note.Changed = DateTime.Now;
                     _context.Update(note);
                     await _context.SaveChangesAsync();

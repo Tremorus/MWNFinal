@@ -30,15 +30,15 @@
 <table class="table">
     <thead>
         <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.notes[0].NoteAvatar)
+                <th style="width:30px;">
+                    Ava@*@Html.DisplayNameFor(model => model.notes[0].NoteAvatar)*@
                 </th>
-                <th>
+                @*<th>
                     @Html.DisplayNameFor(model => model.notes[0].OwnerId)
-                </th>
-                <th>
+                </th>*@
+                @*<th style="width:50px;">
                     @Html.DisplayNameFor(model => model.notes[0].Owner)
-                </th>
+                </th>*@
                 <th>
                     @Html.DisplayNameFor(model => model.notes[0].Title)
                 </th>
@@ -48,12 +48,12 @@
                 <th>
                     Action
                 </th>
-                <th>
+                @*<th>
                     @Html.DisplayNameFor(model => model.notes[0].Created)
                 </th>
                 <th>
                     @Html.DisplayNameFor(model => model.notes[0].Changed)
-                </th>
+                </th>*@
         </tr>
     </thead>
     <tbody>
@@ -61,14 +61,14 @@
         <tr>
             <td>
                 @*@Html.DisplayFor(modelItem => item.NoteAvatar)*@
-                @Html.Raw(item.NoteAvatar)
+                <div style="height: 30px; width: 30px;">@Html.Raw(item.NoteAvatar)</div>
             </td>
-            <td>
+            @*<td>
                 @Html.DisplayFor(modelItem => item.OwnerId)
-            </td>
-            <td>
+            </td>*@
+            @*<td>
                 @Html.DisplayFor(modelItem => item.Owner)
-            </td>
+            </td>*@
             <td>
                 @Html.DisplayFor(modelItem => item.Title)
             </td>
@@ -80,12 +80,12 @@
                 <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-info">Details</a> |
                 <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-default btn-danger">Delete</a>
             </td>
-            <td>
+            @*<td>
                 @Html.DisplayFor(modelItem => item.Created)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Changed)
-            </td>
+            </td>*@
 
         </tr>
 }
