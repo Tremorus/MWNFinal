@@ -7,12 +7,15 @@
 <h2>Details</h2>
 
 <div>
-    <h4>Note</h4>
+
+    @*<h4>Note</h4>*@
     <hr />
+    <div style="height:30px;width:30px;">@Html.Raw(Model.NoteAvatar)</div>
     <dl class="dl-horizontal">
+
         @*<dt>
-            @Html.DisplayNameFor(model => model.OwnerId)
-        </dt>*@
+                @Html.DisplayNameFor(model => model.OwnerId)
+            </dt>*@
         <dt>
             @Html.DisplayNameFor(model => model.Owner)
         </dt>
