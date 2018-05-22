@@ -1,0 +1,33 @@
+﻿{
+  "dependencies": {
+    "Microsoft.NETCore.App": {
+      "version": "2.0.7",
+      "type": "platform"
+    },
+    "Microsoft.AspNetCore.Diagnostics": "2.0.3",
+    "Microsoft.AspNetCore.Server.IISIntegration": "2.0.3",
+    "Microsoft.AspNetCore.Server.Kestrel": "2.0.3",
+    "Microsoft.Extensions.Logging.Console": "2.0.2",
+    "Microsoft.AspNetCore.StaticFiles": "2.0.3",
+    "Microsoft.AspNetCore.Mvc": "2.0.4",
+    "Microsoft.AspNetCore.Mvc.TagHelpers": "2.0.4",
+    "Microsoft.Extensions.Configuration.Json": "2.0.2",
+    "Microsoft.EntityFrameworkCore": "2.0.3",
+    "Microsoft.EntityFrameworkCore.SqlServer": "2.0.3",
+    "Microsoft.EntityFrameworkCore.Tools": {
+      "version": "2.0.3",
+      "type": "build"
+    },
+    "Microsoft.AspNetCore.Server.IISIntegration.Tools": "1.1.0-preview4-final"
+  },
+
+  "tools": {
+    "Microsoft.EntityFrameworkCore.Tools": {
+      "version": "1.0.0-preview2-final",
+      "imports": [
+        "portable-net45+win8+dnxcore50",
+        "portable-net45+win8"
+      ]
+    }
+  }
+}
