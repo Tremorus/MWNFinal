@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -29,7 +25,15 @@ namespace MWN
             //    options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
             //Далее добавляются специфичные для Identity сервисы:
-            services.AddIdentity<User, IdentityRole>()
+            services.AddIdentity<User, IdentityRole>(options =>
+            {
+                //pass settings
+                options.Password.RequireDigit = false;
+                options.Password.RequireUppercase = false;
+                //options.Password.RequireLowercase = false;
+                options.Password.RequireNonAlphanumeric = false;
+                options.Password.RequiredUniqueChars = 3;
+            })
                 .AddEntityFrameworkStores<MWNContext>();
 
             services.AddMvc();

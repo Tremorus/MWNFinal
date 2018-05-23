@@ -1,5 +1,3 @@
-using System;
-
 namespace MWN.Models
 {
     public class ErrorViewModel

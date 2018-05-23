@@ -1,6 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace MWN.ViewModels
+﻿namespace MWN.ViewModels
 {
     public class CreateUserViewModel
     {

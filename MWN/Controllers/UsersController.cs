@@ -4,7 +4,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Identity;
 using MWN.Models;
 using MWN.ViewModels;
-using Microsoft.AspNetCore.Authorization;
 
 namespace MWN.Controllers
 {
