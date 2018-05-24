@@ -122,7 +122,6 @@ namespace MWN.Controllers
             // Read the content.
             string responseFromServer = reader.ReadToEnd();
             // Display the content.
-            //Console.WriteLine(responseFromServer);
             // Cleanup the streams and the response.
             reader.Close();
             dataStream.Close();

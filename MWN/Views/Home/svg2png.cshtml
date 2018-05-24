@@ -1,0 +1,19 @@
+﻿
+<canvas width="75" height="75"></canvas>
+<script>
+
+var canvas = document.querySelector("canvas"),
+    context = canvas.getContext("2d");
+
+var image = new Image;
+    image.src = "https://avatars.dicebear.com/v2/identicon/mwn.svg";
+image.onload = function() {
+  context.drawImage(image, 0, 0);
+
+  var a = document.createElement("a");
+  a.download = "fallback.png";
+  a.href = canvas.toDataURL("image/png");
+  a.click();
+};
+
+</script>
