@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Identity;
 using MWN.Models;
 using MWN.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 
 namespace MWN.Controllers
 {
@@ -17,6 +18,7 @@ namespace MWN.Controllers
             _userManager = userManager;
         }
 
+        [Authorize(Roles = "admin")]
         public IActionResult Index() => View(_userManager.Users.ToList());
 
         public IActionResult Create() => View();

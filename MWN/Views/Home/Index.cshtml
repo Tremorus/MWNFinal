@@ -1,5 +1,10 @@
-﻿@{
+﻿
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<User> SignInManager
+@inject UserManager<User> UserManager
+@{
     ViewData["Title"] = "Home Page";
 }
 
-<p>Hi! You can register, login, and then create, edit, delete notes.</p>
+<p>Hi @{ if (SignInManager.IsSignedIn(User)) { @UserManager.GetUserName(User); }}! <br />
+    You can register, login, and then create, edit, delete notes.</p>
