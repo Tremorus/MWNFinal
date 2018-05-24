@@ -14,9 +14,9 @@
 
 <form asp-controller="Notes" asp-action="Index" method="get">
     <p>
-        <select asp-for="ownerField" asp-items="Model.owners">
+        @*<select asp-for="ownerField" asp-items="Model.owners">
             <option value="">All</option>
-        </select>
+        </select>*@
         
         Content filter: <input type="search" name="searchString" />
         <input type="submit" value="Filter" />

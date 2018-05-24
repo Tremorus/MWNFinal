@@ -35,7 +35,7 @@ namespace MWN.Controllers
             notes = notes.Where(x => x.OwnerId == User.FindFirstValue(ClaimTypes.NameIdentifier));   //GET  ONLY OWN NOTES by OwnerId
             if (!String.IsNullOrEmpty(searchString))
             {
-                notes = notes.Where(s => s.Content.Contains(searchString));
+                notes = notes.Where(s => s.Content.Contains(searchString) || s.Title.Contains(searchString));
             }
 
             if(!String.IsNullOrEmpty(ownerField))
@@ -44,7 +44,7 @@ namespace MWN.Controllers
             }
 
             var noteOwnerVM = new NoteOwnerViewModel();
-            noteOwnerVM.owners = new SelectList(await ownerQuery.Distinct().ToListAsync()); //select unique values from owners
+            //noteOwnerVM.owners = new SelectList(await ownerQuery.Distinct().ToListAsync()); //select unique values from owners
             noteOwnerVM.notes = await notes.ToListAsync();
 
             return View(noteOwnerVM);
